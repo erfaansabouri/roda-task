@@ -18,7 +18,7 @@ class Project extends Model
     public function getPlanImageUrlAttribute()
     {
 
-        return env('APP_URL'). "/storage/user-data/". $this->plan_image;
+        return env('APP_URL'). "/roda-storage/user-data/". $this->plan_image;
     }
 
 }

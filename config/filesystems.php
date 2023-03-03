@@ -57,8 +57,8 @@ return [
         ],
         'parswebserver' => [
             'driver' => 'local',
-            'root' => public_path('user-data'),
-            'url' => env('APP_URL').'/user-data',
+            'root' => public_path('roda-storage'),
+            'url' => env('APP_URL').'/roda-storage',
             'visibility' => 'public',
         ],
 
