@@ -19,11 +19,13 @@ class ProjectController extends Controller
             'plan_image' => ['required', 'mimes:png,jpeg,jpg'],
         ]);
 
-        $movementFileName = Str::uuid() . '.' . $request->movement_file->extension();
-        $request->movement_file->move(public_path('user-data'), $movementFileName);
+        $movementFile = $request->file('movement_file');
+        $movementFileName = Str::uuid(). '.' . $movementFile->getClientOriginalExtension();
+        $movementFile->storeAs('user-data', $movementFileName, 'parswebserver');
 
-        $planImageFileName = Str::uuid() . '.' . $request->plan_image->extension();
-        $request->plan_image->move(public_path('user-data'), $planImageFileName);
+        $planImageFile = $request->file('plan_image');
+        $planImageFileName = Str::uuid(). '.' . $planImageFile->getClientOriginalExtension();
+        $planImageFile->storeAs('user-data', $planImageFileName, 'parswebserver');
 
         $project = Project::query()
             ->create([
@@ -34,7 +36,6 @@ class ProjectController extends Controller
                 'plan_image' => $planImageFileName,
             ]);
 
-        $movementFile = public_path('user-data/'. $movementFileName);
         $lines = file($movementFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
         foreach ($lines as $line) {
             $lineValues = explode(',' ,$line);
