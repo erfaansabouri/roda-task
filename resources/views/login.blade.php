@@ -53,6 +53,13 @@
                         Login
                     </button>
                 </div>
+                <div class="container-login100-form-btn m-t-32">
+                    <p>
+                        demo email: <code>roda@gmail.com</code>
+                        <br>
+                        demo pass: <code>roda</code>
+                    </p>
+                </div>
 
             </form>
         </div>
