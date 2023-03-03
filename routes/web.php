@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::get('/', [Controller::class, 'rooda']);
+Route::get('/', [AuthController::class, 'loginPage']);
 
 Route::get('/auth/login', [AuthController::class, 'loginPage'])->name('auth.login-page');
 Route::post('/auth/login', [AuthController::class, 'login'])->name('auth.login');
