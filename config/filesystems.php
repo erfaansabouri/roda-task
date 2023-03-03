@@ -58,7 +58,7 @@ return [
         'parswebserver' => [
             'driver' => 'local',
             'root' => public_path('user-data'),
-            'url' => env('APP_URL').'/storage',
+            'url' => env('APP_URL').'/user-data',
             'visibility' => 'public',
         ],
 
