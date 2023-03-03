@@ -6,5 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Movement extends Model
 {
-
+   protected $table = 'movements';
+   protected $guarded = [];
 }
